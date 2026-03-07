@@ -15,5 +15,14 @@ cleaned AS (
     FROM source
 
 )
+,
 
-SELECT * FROM cleaned
+-- addressing data quality issues where usage_date is not available at source
+filtered AS (
+
+    SELECT *
+    FROM cleaned
+    WHERE usage_date IS NOT null
+)
+
+SELECT * FROM filtered

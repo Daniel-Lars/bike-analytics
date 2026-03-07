@@ -1,0 +1,84 @@
+version: 2
+
+models:
+  - name: dim__bike
+    description: >
+      tbd
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: pk_bike
+        data_type: text
+        constraints:
+          - type: primary_key
+      - name: bike_id
+        data_type: text
+        data_tests:
+          - not_null
+          - unique
+  - name: dim__customer
+    description: >
+      tbd
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: pk_customer
+        data_type: integer
+        constraints:
+          - type: primary_key
+      - name: customer_id
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: customer_name
+        data_type: text
+        data_tests:
+          - not_null
+      - name: city
+        data_type: text
+        data_tests:
+          - not_null
+      - name: signup_date
+        data_type: date
+        data_tests:
+          - not_null
+  - name: dim__contract
+    description: >
+      tbd
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: pk_contract
+        data_type: integer
+        constraints:
+          - type: primary_key
+      - name: contract_id
+        data_type: integer
+        data_tests:
+          - not_null
+  - name: dim__calendar
+    description: >
+      tbd
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: pk_date_key
+        data_type: date
+        constraints:
+          - type: primary_key
+      - name: calendar_date
+        data_type: date
+      - name: year
+        data_type: integer
+      - name: month
+        data_type: integer
+      - name: day
+        data_type: integer
+      - name: week
+        data_type: integer
+      - name: quarter
+        data_type: integer
