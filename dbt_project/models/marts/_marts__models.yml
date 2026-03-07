@@ -9,3 +9,10 @@ models:
       - name: calendar_year
       - name: calendar_month
       - name: active_contracts
+  - name: mrt__avg_monthly_km_by_bike
+    description: >
+      Calculation of the average usage by bike per month.
+      Granularity: Bike
+    columns:
+      - name: bike_id
+      - name: avg_km_by_month
