@@ -18,11 +18,15 @@ cleaned AS (
 ,
 
 -- addressing data quality issues where usage_date is not available at source
+-- excluding negative distance_km, to be clarified if DQ issue or valid business reason
+
 filtered AS (
 
     SELECT *
     FROM cleaned
-    WHERE usage_date IS NOT null
+    WHERE
+        usage_date IS NOT null
+        AND distance_km > 0
 )
 
 SELECT * FROM filtered

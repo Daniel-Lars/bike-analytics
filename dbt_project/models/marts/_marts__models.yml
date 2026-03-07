@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: mrt__active_contracts
+    description: >
+      Counts the number of active contracts by year and month up to the current month. Contracts with contract_end_date = NULL are considered active.
+      Granularity: Year, Month
+    columns:
+      - name: calendar_year
+      - name: calendar_month
+      - name: active_contracts
+  - name: mrt__avg_monthly_km_by_bike
+    description: >
+      Calculation of the average usage by bike per month.
+      Granularity: Bike
+    columns:
+      - name: bike_id
+      - name: avg_km_by_month
+  - name: mrt__top_3_cities_by_km
+    description: >
+      Calculation of the top 3 cities by total kilometers.
+      Granularity: City
+      Filter: Top 3
+    columns:
+      - name: city
+      - name: total_km

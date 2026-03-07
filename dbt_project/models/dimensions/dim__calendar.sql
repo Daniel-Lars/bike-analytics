@@ -12,6 +12,6 @@ SELECT
     cast(extract(YEAR FROM date_day) AS int) AS calendar_year,
     cast(extract(MONTH FROM date_day) AS int) AS calendar_month,
     cast(extract(DAY FROM date_day) AS int) AS day_of_month,
-    cast(extract(WEEK FROM date_day) AS int) AS week_of_year,
+    cast(extract(WEEK FROM date_day) AS int) AS calendar_week,
     cast(extract(QUARTER FROM date_day) AS int) AS calendar_quarter
 FROM dates

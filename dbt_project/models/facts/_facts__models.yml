@@ -20,12 +20,15 @@ models:
       Fact table holding contract information.
       Grain: one row represents one contract.
     columns:
-      - name: usage_id
+      - name: fk_contract
         data_tests:
           - not_null
-      - name: bike_id
+      - name: fk_customer
         data_tests:
           - not_null
-      - name: usage_date
+      - name: fk_bike
+        data_tests:
+          - not_null
+      - name: contract_start_date
         data_tests:
           - not_null
