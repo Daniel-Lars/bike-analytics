@@ -12,6 +12,8 @@ dependencies = [
     "dbt-core>=1.11.7",
     "dbt-postgres>=1.10.0",
     "pre-commit>=4.5.1",
+    "sqlfluff>=4.0.4",
+    "sqlfluff-templater-dbt>=4.0.4",
 ]
 
 [project.scripts]

@@ -11,3 +11,12 @@ repos:
     - id: ruff-check
       args: [--fix]
     - id: ruff-format
+- repo: https://github.com/sqlfluff/sqlfluff
+  rev: 3.4.2
+  hooks:
+    - id: sqlfluff-lint
+      additional_dependencies: ['dbt-postgres', 'sqlfluff-templater-dbt']
+      files: ^dbt_project/models/.*\.sql$
+    - id: sqlfluff-fix
+      additional_dependencies: ['dbt-postgres', 'sqlfluff-templater-dbt']
+      files: ^dbt_project/models/.*\.sql$
