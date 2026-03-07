@@ -16,3 +16,11 @@ models:
     columns:
       - name: bike_id
       - name: avg_km_by_month
+  - name: mrt__top_3_cities_by_km
+    description: >
+      Calculation of the top 3 cities by total kilometers.
+      Granularity: City
+      Filter: Top 3
+    columns:
+      - name: city
+      - name: total_km
