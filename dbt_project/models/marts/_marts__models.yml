@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: mrt__active_contracts
+    description: >
+      Counts the number of active contracts by year and month up to the current month. Contracts with contract_end_date = NULL are considered active.
+      Granularity: Year, Month
+    columns:
+      - name: calendar_year
+      - name: calendar_month
+      - name: active_contracts
