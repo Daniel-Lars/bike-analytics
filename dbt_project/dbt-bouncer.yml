@@ -13,3 +13,7 @@ manifest_checks:
     description: Models in the dimensions layer should always start with "dim__".
     include: ^models/dimensions
     model_name_pattern: ^dim__
+  - name: check_model_names
+    description: Models in the mart layer should always start with "mrt__".
+    include: ^models/marts
+    model_name_pattern: ^mrt__
