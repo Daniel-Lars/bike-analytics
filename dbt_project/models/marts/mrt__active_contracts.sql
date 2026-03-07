@@ -1,9 +1,6 @@
 WITH contracts AS (
 
-    SELECT
-        fk_contract,
-        contract_start_date,
-        cast(coalesce(contract_end_date, '9999-12-31') AS date) AS contract_end_date
+    SELECT *
     FROM {{ ref('fct__contracts') }}
 )
 ,
