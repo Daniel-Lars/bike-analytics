@@ -72,13 +72,13 @@ models:
           - type: primary_key
       - name: calendar_date
         data_type: date
-      - name: year
+      - name: calendar_year
         data_type: integer
-      - name: month
+      - name: calendar_month
         data_type: integer
-      - name: day
+      - name: day_of_month
         data_type: integer
-      - name: week
+      - name: calendar_week
         data_type: integer
-      - name: quarter
+      - name: calendar_quarter
         data_type: integer
