@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: fct__bike_usage
+    description: >
+      Fact table holding bike usage data.
+      Grain: one row represents one usage event.
+    columns:
+      - name: usage_id
+        data_tests:
+          - not_null
+      - name: bike_id
+        data_tests:
+          - not_null
+      - name: usage_date
+        data_tests:
+          - not_null
+  - name: fct__contracts
+    description: >
+      Fact table holding contract information.
+      Grain: one row represents one contract.
+    columns:
+      - name: usage_id
+        data_tests:
+          - not_null
+      - name: bike_id
+        data_tests:
+          - not_null
+      - name: usage_date
+        data_tests:
+          - not_null

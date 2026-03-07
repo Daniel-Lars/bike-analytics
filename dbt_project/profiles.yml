@@ -5,7 +5,16 @@ dbt_project:
       host: localhost
       pass: "{{ env_var('DEV_POSTGRES_PASSWORD') }}"
       port: 5432
-      schema: my_schema
+      schema: "{{ env_var('DEVELOPER_SCHEMA_PREFIX') }}"
+      threads: 1
+      type: postgres
+      user: "{{ env_var('DEV_POSTGRES_USER') }}"
+    prod:
+      dbname: "{{ env_var('DEV_POSTGRES_DB') }}"
+      host: localhost
+      pass: "{{ env_var('DEV_POSTGRES_PASSWORD') }}"
+      port: 5432
+      schema: ""
       threads: 1
       type: postgres
       user: "{{ env_var('DEV_POSTGRES_USER') }}"

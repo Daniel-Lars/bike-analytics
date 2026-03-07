@@ -1,0 +1,17 @@
+version: 2
+
+macros:
+  - name: parse_date
+    description: >
+      Parses a string column representing a date value to date format.
+      Supported date formats:
+        YYYY-MM-DD
+        DD-MM-YYYY
+        YYYY/MM/DD
+        DD/MM/YYYY
+        YYYY.MM.DD
+        DD.MM.YYYY
+    arguments:
+      - name: column
+        type: string
+        description: The column to be parsed from data type string to data type date.

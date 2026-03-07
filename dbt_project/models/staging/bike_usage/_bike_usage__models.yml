@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+  - name: stg__bike_usage
+    description: ""
+    columns:
+      - name: usage_id
+        data_type: integer
+        description: ""
+
+      - name: bike_id
+        data_type: text
+        description: ""
+
+      - name: usage_date
+        data_type: date
+        description: ""
+
+      - name: distance_km
+        data_type: numeric
+        description: ""

@@ -1,0 +1,22 @@
+
+version: 2
+
+models:
+  - name: stg__customers
+    description: ""
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: ""
+
+      - name: name
+        data_type: text
+        description: ""
+
+      - name: city
+        data_type: text
+        description: ""
+
+      - name: signup_date
+        data_type: date
+        description: ""

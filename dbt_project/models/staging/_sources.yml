@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: bike_data
+    database: bike_analytics
+    schema: raw
+    tables:
+      - name: contracts
+      - name: bike_usage
+      - name: customers
