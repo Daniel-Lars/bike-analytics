@@ -1,9 +1,9 @@
 WITH base AS (
 
     SELECT
-        contract_id AS fk_contract,
-        customer_id AS fk_customer,
-        bike_id AS fk_bike,
+        contract_id AS fk_contract_id,
+        customer_id AS fk_customer_id,
+        bike_id AS fk_bike_id,
         contract_start_date,
         contract_end_date,
         monthly_rate

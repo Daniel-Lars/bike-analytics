@@ -5,32 +5,73 @@ models:
     description: >
       Fact table holding bike usage data.
       Grain: one row represents one usage event.
+    config:
+      contract:
+        enforced: true
     columns:
       - name: pk_bike_usage_id
-        data_tests:
-          - not_null
-          - unique
+        data_type: integer
+        constraints:
+          - type: primary_key
       - name: bike_usage_id
+        data_type: integer
         data_tests:
           - not_null
           - unique
       - name: fk_bike_id
+        data_type: text
+        constraints:
+          - type: foreign_key
+            to: ref('dim__bike')
+            to_columns: [pk_bike]
       - name: fk_customer_id
+        data_type: integer
+        # Can not be enforced at this point in time due to DQ issues
+        # see analysis a2
+        # constraints:
+        #   - type: foreign_key
+        #     to: ref('dim__customer')
+        #     to_columns: [pk_customer]
       - name: usage_date
+        data_type: date
+      - name: distance_km
+        data_type: numeric
+
   - name: fct__contracts
     description: >
       Fact table holding contract information.
       Grain: one row represents one contract.
+    config:
+      contract:
+        enforced: true
     columns:
-      - name: fk_contract
+      - name: fk_contract_id
+        data_type: integer
         data_tests:
           - not_null
-      - name: fk_customer
-        data_tests:
-          - not_null
-      - name: fk_bike
+        constraints:
+          - type: foreign_key
+            to: ref('dim__contract')
+            to_columns: [pk_contract]
+      - name: fk_customer_id
+        data_type: integer
+        # Can not be enforced at this point in time due to DQ issues
+        # see analysis a3
+        # constraints:
+        #   - type: foreign_key
+        #     to: ref('dim__customer')
+        #     to_columns: [pk_customer]
+      - name: fk_bike_id
+        data_type: text
         data_tests:
           - not_null
       - name: contract_start_date
+        data_type: date
         data_tests:
           - not_null
+      - name: contract_end_date
+        data_type: date
+        data_tests:
+          - not_null
+      - name: monthly_rate
+        data_type: numeric

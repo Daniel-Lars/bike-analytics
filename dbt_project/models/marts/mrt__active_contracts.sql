@@ -20,7 +20,7 @@ joined AS (
     SELECT
         calendar.calendar_year,
         calendar.calendar_month,
-        contracts.fk_contract
+        contracts.fk_contract_id
     FROM calendar
     LEFT JOIN contracts
         ON
@@ -34,7 +34,7 @@ aggregated AS (
         calendar_month,
         count(*) AS active_contracts
     FROM joined
-    WHERE fk_contract IS NOT null
+    WHERE fk_contract_id IS NOT null
     GROUP BY calendar_year, calendar_month
 
 )
