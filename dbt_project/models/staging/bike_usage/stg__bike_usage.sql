@@ -17,13 +17,33 @@ cleaned AS (
 )
 ,
 
+-- source data contain duplicated rows
+-- rows are deduplicated in an arbitrary way using selecting the earliest usage date
+-- in case usage dates differ
+row_number AS (
+
+    SELECT
+        *,
+        row_number() OVER (PARTITION BY usage_id ORDER BY usage_date ASC) AS rn
+    FROM cleaned
+
+)
+,
+
+deduplicated AS (
+
+    SELECT *
+    FROM row_number
+    WHERE rn = 1
+)
+,
+
 -- addressing data quality issues where usage_date is not available at source
 -- excluding negative distance_km, to be clarified if DQ issue or valid business reason
-
 filtered AS (
 
     SELECT *
-    FROM cleaned
+    FROM deduplicated
     WHERE
         usage_date IS NOT null
         AND distance_km > 0
