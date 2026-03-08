@@ -18,7 +18,7 @@ total_km_by_city AS (
         customer.city,
         sum(bike_usage.distance_km) AS total_km
     FROM bike_usage
-    INNER JOIN customer ON bike_usage.customer_id = customer.pk_customer
+    INNER JOIN customer ON bike_usage.fk_customer_id = customer.pk_customer
     GROUP BY customer.city
 )
 
