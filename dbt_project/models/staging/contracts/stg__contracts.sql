@@ -31,6 +31,12 @@ end_date_null_replaced AS (
 )
 ,
 
+-- contract data contain overlapping contract timeframes for customers, which
+-- leads to the same bike_id being simultaneously assigned to 2 or more
+-- customers. This DQ issue is addressed by recalculating the end_date
+-- for these cases. As soon as a bike_id appears in a with a new customer
+-- the previous contract is end-dated.
+
 overlapping_contract_end_dates AS (
 
     SELECT

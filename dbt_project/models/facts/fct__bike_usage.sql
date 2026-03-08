@@ -15,9 +15,10 @@ contracts AS (
 bike_usage_enriched AS (
 
     SELECT
-        bike_usage.usage_id,
-        bike_usage.bike_id,
-        contracts.customer_id,
+        bike_usage.usage_id AS pk_bike_usage_id,
+        bike_usage.usage_id AS bike_usage_id,
+        bike_usage.bike_id AS fk_bike_id,
+        contracts.customer_id AS fk_customer_id,
         bike_usage.usage_date,
         bike_usage.distance_km
     FROM bike_usage

@@ -6,14 +6,21 @@ WITH bike_usage AS (
 )
 ,
 
+dim_bike AS (
+    SELECT *
+    FROM {{ ref('dim__bike') }}
+)
+,
+
 monthly_aggregation_by_bike AS (
 
     SELECT
-        bike_usage.bike_id,
+        dim_bike.bike_id,
         date_trunc('month', bike_usage.usage_date) AS usage_month,
         sum(bike_usage.distance_km) AS total_km_by_month
     FROM bike_usage
-    GROUP BY bike_usage.bike_id, date_trunc('month', bike_usage.usage_date)
+    INNER JOIN dim_bike ON bike_usage.fk_bike_id = dim_bike.pk_bike
+    GROUP BY dim_bike.bike_id, date_trunc('month', bike_usage.usage_date)
 
 )
 ,
