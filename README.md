@@ -10,6 +10,7 @@ The data itself is **not committed to GitHub**.
 
 Expected folder structure for data:
 
+```
 project-root/
 ├── data/
 │   ├── contracts/
@@ -18,7 +19,7 @@ project-root/
 │   │   └── bike_usage.csv
 │   └── customers/
 │       └── customer.csv
-
+```
 
 ## 1. Install dependencies
 
